@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+
+{% block content %}
+    
+    
+    <html>
+<head>
+    <title> Update Post </title>
+
+</head>
+<body>
+    
+    <form action="{% url core.views.update_post %}" method="post" >
+        
+        {% csrf_token %}
+        <textarea name "content" rows="20" cols="60">{{content.pk}}</textarea><br/>
+        <input type = "submit" value="Save Page"/>
+    </form>
+</body>
+
+{% endblock %}
+
+

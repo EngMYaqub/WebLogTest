@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+
+{% block content %}
+    
+    <!--<form action="/" method="post">-->
+
+<dl>
+    {% for post in posts %}
+    <dt>{{ post.title }} (written by {{ post.user.username }})</dt>
+    <dd>{{ post.content }}</dd>
+    <dt>{{post.date}}</dt>
+    <dt>  {{post.id }}
+    <input title='Update_Record' type='submit' name='UpdateBlog' value='Update' id='{{ post.id }}' />
+    <input title='Delete_Record' type='submit' name='UpdateBlog' value='Delete' id='{{ post.id }}' />
+    <a href={% url core.views.update_post %}?pid={{post.pk}}/>Edit Web log</a>
+    
+    </dt>
+    <!--<dt><a href="{% url django.contrib.auth.views.login %}" id="{{ post.id }}">Edit</a></dt>-->
+    
+    {% endfor %}
+</dl>
+{% endblock %}
+
+<!--return HttpResponse("Hello world")-->
